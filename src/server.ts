@@ -59,7 +59,7 @@ connection.onInitialize((params: InitializeParams) => {
     "*",
     "$",
     "+",
-    
+
     // alpha
     "a",
     "b",
@@ -192,7 +192,12 @@ connection.onCompletion(
       let right = extractPosition.start;
       let abbreviation = extractPosition.abbreviation;
       let textResult = "";
-      if (languageId === "html") {
+      if (
+        languageId === "html" ||
+        languageId === "erb" ||
+        languageId === "eruby" ||
+        languageId === "typescriptreact"
+      ) {
         const htmlconfig = resolveConfig({
           options: {
             "output.field": (index, placeholder) =>
